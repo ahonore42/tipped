@@ -5,8 +5,14 @@ let router = require('express').Router()
 router.get('/login', (req, res) => 
 res.render('auth/login'))
 
+// POST /auth/login place for the login form to post to
+router.post('/login', (req, res) => {
+    console.log('DATA', req.body)
+    res.send('Hello from post route!')
+})
+
 router.get('/signup', (req, res) => {
-    res.send('STUB - sign up form')
+    res.render('auth/signup')
 })
 
 // Export

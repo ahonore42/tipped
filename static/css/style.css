@@ -2,34 +2,15 @@ html, body {
     margin: 0;
     padding: 0;
     text-align: center;
-    background-color: bisque;
+    background-image: linear-gradient(rgb(248, 190, 255), #ffa52e);
 }
 
-h1 {
-    color: #00004d;
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
 }
 
-nav, footer {
-    background-color: #5d4954;
-    color: #ddd;
-    padding: 20px 0;
-}
-
-nav ul {
-    list-style-type: none;
-}
-
-nav li {
-    display: inline;
-    margin: 0px 20px 0px 20px;
-}
-
-nav a {
-    text-decoration: none;
-    color: #ddd;
-}
-
-nav a:hover {
-    color: bisque;
-    text-decoration: underline;
+main {
+    flex: 1 0 auto;
 }

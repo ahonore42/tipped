@@ -22,6 +22,9 @@ app.use(layouts)
 // Set up the static folder
 app.use(express.static('static'))
 
+// Decrypt the variables coming in via POST routes (from form tags)
+app.use(express.urlencoded({ extended: false }))
+
 /*****************************
  * ROUTES 
  *****************************/
