@@ -1,0 +1,10 @@
+<% if (alerts && alerts.error) { %>
+    
+    <div class="card red darken-1" style="margin: 0; padding: 0px">
+        <div class="card-content white-text">
+            <% alerts.error.forEach(e => { %>
+              <p>Validation Error: <%= e %></p>
+            <% }) %> 
+            </div>
+        </div>
+<% } %>

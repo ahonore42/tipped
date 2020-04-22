@@ -1,44 +1,60 @@
 <h1>Sign Up</h1>
 <p>Welcome to our site!</p>
 <div class="row">
-    <form class="col s12">
+    <form class="col s12" method="POST" action="/auth/signup">
         <div class="row">
             <div class="input-field col s6">
-                <input id="first_name" type="text" name="firstname">
+                <input id="first_name" type="text" name="firstname" value="<%= data.firstname %>">
                 <label for="first_name">First Name</label>
             </div>
             <div class="input-field col s6">
-                <input id="last_name" type="text" name="lastname">
+                <input id="last_name" type="text" name="lastname" value="<%= data.lastname %>">
                 <label for="last_name">Last Name</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <input id="email" type="email" name="email">
+                <input id="email" type="email" name="email" value="<%= data.email %>">
                 <label for="email">Email</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s6">
-                <input id="password" type="password" name="password">
+                <input id="password" type="password" name="password" value="<%= data.password%>">
                 <label for="password">Password</label>
             </div>
             <div class="input-field col s6">
-                <input id="password_verify" type="password" name="password_verify">
+                <input id="password_verify" type="password" name="password_verify" value="<%= data.password_verify%>">
                 <label for="password_verify">Verify Password</label>
             </div>
         </div>
         <div class="row">
+            <div class="input-field col s4">
+                <input id="username" name="username" type="text" value="<%= data.username %>">
+                <label for="username">Username</label>
+            </div>
+            <div class="input-field col s4">
+                <input id="zipcode" name="zipcode" type="number" value="<%= data.zipcode %>"> 
+                <label for="zipcode">ZIP Code</label>
+            </div>
+            <div class="input-field col s4">
+                <input id="birthday" name="birthday" type="text" class="datepicker" value="<%= data.birthday %>">
+                <label for="birthday">Birthday</label>
+            </div>
+        </div>
+        <div class="row">
             <div class="input-field col s12">
-                <input id="pic" type="url" name="pic">
+                <input id="pic" type="url" name="pic" value="<%= data.pic %>">
                 <label for="pic">Picture URL</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <textarea id="bio" name="bio" class="materialize-textarea"></textarea>
+                <textarea id="bio" name="bio" class="materialize-textarea"><%= data.bio %></textarea>
                 <label for="bio">Bio</label>
             </div>
         </div>
+        <button class="btn waves-effect teal darken-3">Sign Up</button>
+        <i class="Material Icons Right"></i>
     </form>
 </div>
