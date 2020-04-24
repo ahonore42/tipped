@@ -102,7 +102,79 @@ createdb <new_db_name>
 createdb brand_new
 ```
 
-### Alter Sequelize Config File
+### 5. Alter Sequelize Config File
 
 In `config/config.json`, update the database name to the one created in step 4. Other settings likely ok, but check username, password, and dialect.
 
+### 6. Check the user model for relevance to new project's needs
+
+For example, if the new project doesn't need a birthday field, then delete it from the user model and user migration files.
+
+### 7. Run the sequelize migration
+
+```sh
+sequelize db:migrate
+```
+
+If you need to undo the migration and change data in the user models afterwards use
+
+```sh
+sequelize db:migrate:undo
+```
+
+Then run the migration again
+
+### 8. Create a file for the environment variables
+
+```sh
+touch.env
+```
+
+> Alternatively just create vie text editor
+
+Include the following .env variables:
+
+* SESSION_SECRET - this is a key for the session to use
+* API KEYS - if outside data is being sourced
+
+### 9. Run the server and make sure it works
+
+**with nodemon**
+
+```sh
+nodemon
+```
+
+**without nodemon**
+
+```sh
+node index.js
+```
+
+### 10. Delete the origin that points to the boilerplate repository
+
+Currently if we run this command:
+
+```sh
+git remote -v
+```
+
+It will show as being connected to the boilerplate repository. We want a fresh repository instead, so let's delete the origin remote:
+
+```sh
+git remote remove origin
+```
+
+### 11. Create an empty git repository
+
+Via the GitHub website. Follow directions as they show up when you create a new repository
+
+```sh
+git init
+git add .
+git commit -m "Initial commit"
+git remote add origin <new_repo_link>
+git push origin master
+```
+
+**Happy developing!**
