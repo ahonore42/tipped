@@ -101,3 +101,8 @@ createdb <new_db_name>
 ```sh
 createdb brand_new
 ```
+
+### Alter Sequelize Config File
+
+In `config/config.json`, update the database name to the one created in step 4. Other settings likely ok, but check username, password, and dialect.
+
