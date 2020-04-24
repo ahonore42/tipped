@@ -78,3 +78,14 @@ git clone https://github.com/ahonore42/boiler.git brand_new_project
 ```
 npm i
 ```
+
+### 3. Customize the new project
+
+Remove default-y stuff. For example:
+
+* Title in `layout.ejs`
+* Logo field in the nav bar
+* Description and Repository fields in package.json
+* Remove this boilerplate's readme content
+* Switch Favicon to project-specific one
+* Re-style to match new project
