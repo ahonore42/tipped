@@ -20,6 +20,16 @@ This is a boilerplate for an Express app with local user authentication. It exis
 | Column | Type | Notes |
 | ---------- | ----------- | --------------------------- |
 | id | Integer | Serial Primary Key |
+| firstname | String | Required Length > 1 |
+| lastname | String | - |
+| email | Email | Unique Login |
+| password | String | Hash |
+| bio | Text | - |
+| birthday | Date | - |
+| pic | String | - |
+| admin | Boolean | Defaulted to False |
+| createdAt | Date | Automaticall added by Sequelize |
+| updatedAt | Date | Automaticall added by Sequelize |
 
 ## Included Routes
 
