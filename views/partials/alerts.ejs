@@ -8,3 +8,14 @@
             </div>
         </div>
 <% } %>
+
+<% if (alerts && alerts.success) { %>
+    
+  <div class="card green darken-1" style="margin: 0; padding: 0px">
+      <div class="card-content white-text">
+          <% alerts.success.forEach(s => { %>
+            <p><%= s %></p>
+          <% }) %> 
+          </div>
+      </div>
+<% } %>

@@ -4,15 +4,30 @@
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
         <li><a href="/">Home</a></li>
+        <% if (currentUser) { %>
+        <li><a href="/profile/user">Profile Page</a></li>
+        <% if (currentUser.admin) { %>
+          <li><a href="/profile/admin">Admin Page</a></li>
+        <% } %>
+        <li><a href="/auth/logout">Logout</a></li>
+        <li>Hi, <%= currentUser.firstname %></li>
+        <% } else { %>
         <li><a href="/auth/login">Login</a></li>
-        <li><<a href="/auth/signup">Sign Up</a></li>
-   
+        <li><a href="/auth/signup">Sign Up</a></li>
+        <% } %>
       </ul>
     </div>
   </nav>
 
   <ul class="sidenav" id="mobile-demo">
-    <li><a href="/">Home</a></li>
-    <li><a href="/auth/login">Login</a></li>
-    <li><a href="/auth/signup">Sign Up</a></li>
+      <% if (currentUser) { %>
+      <li><a href="/profile/user">Profile Page</a></li>
+      <% if (currentUser.admin) { %>
+        <li><a href="/profile/admin">Admin Page</a></li>
+      <% } %>
+      <li><a href="/auth/logout">Logout</a></li>
+      <% } else { %>
+      <li><a href="/auth/login">Login</a></li>
+      <li><a href="/auth/signup">Sign Up</a></li>
+      <% } %>
   </ul>

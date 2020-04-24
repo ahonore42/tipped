@@ -14,3 +14,8 @@ body {
 main {
     flex: 1 0 auto;
 }
+
+.profpic {
+    height: 300px;
+    width: 300px;
+}
