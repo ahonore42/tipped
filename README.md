@@ -31,10 +31,16 @@ This is a boilerplate for an Express app with local user authentication. It exis
 | createdAt | Date | Automaticall added by Sequelize |
 | updatedAt | Date | Automaticall added by Sequelize |
 
+## Included Routes
+
+**Routes in index.js (main)**
+
 | Method | Path | Purpose |
 | ----- | ----------- | --------------------------- |
 | GET | `/` | Home Page |
 | GET | `*` | Catch-all for 404s |
+
+**Routes in controllers/auth.js**
 
 | Method | Path | Purpose |
 | ----- | ----------- | --------------------------- |
@@ -44,7 +50,14 @@ This is a boilerplate for an Express app with local user authentication. It exis
 | POST | `/auth/signup` | Process Signup Data |
 | GET | `/auth/logout` | Remove User From Session + Redirect |
 
+**Routes in controllers/profile.js**
 
-## Included Routes
+| Method | Path | Purpose |
+| ----- | ----------------------- | ------------------------------------ |
+| GET | `/profile/user` | Show user dashboard (authorized user only) |
+| GET | `/profile/admin` | Show admin dashboard (authorized admin only) |
+| GET | `/profile/guest/:id` | View user dashboard as guest (authorized user only) |
+
+
 
 ## Directions For Use
