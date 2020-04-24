@@ -53,7 +53,7 @@ This is a boilerplate for an Express app with local user authentication. It exis
 **Routes in controllers/profile.js**
 
 | Method | Path | Purpose |
-| ---- | ------------------- | ----------------------------------------------- |
+| ---- | ------------------- | ------------------------------------------------------- |
 | GET | `/profile/user` | Show user dashboard (authorized user only) |
 | GET | `/profile/admin` | Show admin dashboard (authorized admin only) |
 | GET | `/profile/guest/:id` | View user dashboard as guest (authorized only) |
