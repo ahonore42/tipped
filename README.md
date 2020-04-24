@@ -56,8 +56,14 @@ This is a boilerplate for an Express app with local user authentication. It exis
 | ---- | ------------------- | ------------------------------------------------------- |
 | GET | `/profile/user` | Show user dashboard (authorized user only) |
 | GET | `/profile/admin` | Show admin dashboard (authorized admin only) |
-| GET | `/profile/guest/:id` | View user dashboard as guest (authorized only) |
+| GET | `/profile/guest/:id` | View user dashboard as guest (authorized user only) |
 
 
 
 ## Directions For Use
+
+### 1. Clone the repository, but with a different name
+
+```sh
+git clone https://github.com/ahonore42/boiler <new_name>
+```
