@@ -31,6 +31,11 @@ This is a boilerplate for an Express app with local user authentication. It exis
 | createdAt | Date | Automaticall added by Sequelize |
 | updatedAt | Date | Automaticall added by Sequelize |
 
+| Method | Path | Purpose |
+| ----- | ----------- | --------------------------- |
+| GET | `/` | Home Page |
+| GET | `*` | Catch-all for 404s |
+
 ## Included Routes
 
 ## Directions For Use
