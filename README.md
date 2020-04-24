@@ -12,4 +12,4 @@ This is a boilerplate for an Express app with local user authentication. It exis
 * EJS templating and EJS layouts
 * Sequelize user model
 * Materialize styling - nav and footer
-*
+
