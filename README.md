@@ -89,3 +89,15 @@ Remove default-y stuff. For example:
 * Remove this boilerplate's readme content
 * Switch Favicon to project-specific one
 * Re-style to match new project
+
+### 4. Create a new database for the new project
+
+```sh
+createdb <new_db_name>
+```
+
+**For example**
+
+```sh
+createdb brand_new
+```
