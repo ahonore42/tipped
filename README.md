@@ -36,6 +36,15 @@ This is a boilerplate for an Express app with local user authentication. It exis
 | GET | `/` | Home Page |
 | GET | `*` | Catch-all for 404s |
 
+| Method | Path | Purpose |
+| ----- | ----------- | --------------------------- |
+| GET | `/auth/login` | Render Login Form |
+| POST | `/auth/login` | Process Login Data |
+| GET | `/auth/signup` | Render Signup Form |
+| POST | `/auth/signup` | Process Signup Data |
+| GET | `/auth/logout` | Remove User From Session + Redirect |
+
+
 ## Included Routes
 
 ## Directions For Use
