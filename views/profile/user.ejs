@@ -1,13 +1,63 @@
-<h1><%= currentUser.firstname %>'s Profile</h1>
 
-<div class="row">
-    <div class="col s4">
-        <img class="profpic" src="<%= currentUser.pic %>" alt="profile pic">
+    <div class="userInfo">
+        <div>
+            <img class="coverBackground" src="<%= currentUser.cover %>">
+            <div>
+
+                <img class="userCover" src="<%= currentUser.cover %>">
+            </div>
+        </div>
+        
+        <div>
+            <img class="profpic" src="<%= currentUser.pic %>" alt="profile pic">
+        </div>
+        <h3><%= currentUser.firstname %> <%= currentUser.lastname %></h3>
+        <p><strong></strong><%= currentUser.bio %></p>
+        <div style="display: grid;grid-template-columns: 1fr 3fr; background-color: #263238;margin: 2.5% auto 0 auto;border-radius: 10px 10px 0 0;width: 95%;box-shadow: 0px 0px 10px black;padding: 10px 10px 10px 10px;">
+            <p>City: <%= currentUser.city %></p>
+            <p>Worked at <%= currentUser.bar %></p>
+        </div>
     </div>
-    <div>
-        <p><strong>Name: </strong><%= currentUser.firstname %> <%= currentUser.lastname %></p>
-        <p><strong>Birthday: </strong><%= moment(currentUser.birthday).format('dddd MMMM Do[,] YYYY') %></p>
-        <p><strong>Account Created On: </strong> <%= moment(currentUser.createdAt).format('dddd MMMM Do[,] YYYY') %></p>
-        <p><strong>About: </strong><%= currentUser.bio %></p>
+    
+    
+
+    <div class="drinkContainer" style="background-color: #263238;margin-top: 30px;padding: 5px 0 5px 0;width: 80%;">
+        <h4><%= currentUser.firstname %>'s Favorite Cocktails</h4>
+        <div class="catContainer">
+            <div class="drinkCats">
+                <% if (user.faves.length) { %>
+                    <% user.faves.forEach(f => { %>
+                        <div class="catBox">
+                            <div class="catTitle">
+                                <div>
+                                    <% for (let i = 0; i < drink.length; i++) { %>
+                                        <% if ( drink[i].idDrink == f.drinkId) { %> 
+                                        
+                                            <a href="/drinks/info?i=<%= f.drinkId %>"><img class="catPic" src="<%=drink[i].strDrinkThumb%>" alt="Drink Image"></a>
+                                        <% } %>
+                                    <% } %>
+                                    <% for (let i = 0; i < drank.length; i++) { %>
+                                        <% if ( drank[i].idDrink == f.drinkId) { %> 
+                                        
+                                            <a href="/drinks/info?i=<%= f.drinkId %>"><img class="catPic" src="<%=drank[i].strDrinkThumb%>" alt="Drink Image"></a>
+                                        <% } %>
+                                    <% } %>
+                                </div>
+                                <div>
+                                    <h5 style="font-size: 20px; margin: 0 0 5px 0;"><%= f.name  %></h5>
+                                    <form action="/drinks/fave/<%=f.id%>?_method=DELETE" method="POST">
+                                        <button class="btn waves-effect waves-light pink darken-4" type="submit">
+                                        <i class="material-icons center">delete</i>
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    <% }) %>   
+                <% } else { %>
+                    
+                </div>
+                <h5 style="font-size: 20px; text-align: center;">No favorite drinks? Take a look at the <a href="/">drinks</a> page!</h5>
+                <% } %>
     </div>
-</div>
+

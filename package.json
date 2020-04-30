@@ -1,15 +1,17 @@
 {
-  "name": "auth-boiler",
+  "name": "tipped",
   "version": "1.0.0",
-  "description": "",
+  "description": "bartender app",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Adam Honore",
   "license": "ISC",
   "dependencies": {
+    "async": "^3.2.0",
+    "axios": "^0.19.2",
     "bcryptjs": "^2.4.3",
     "connect-flash": "^0.1.1",
     "dotenv": "^8.2.0",
@@ -17,7 +19,9 @@
     "express": "^4.17.1",
     "express-ejs-layouts": "^2.5.0",
     "express-session": "^1.17.1",
+    "method-override": "^3.0.0",
     "moment": "^2.24.0",
+    "morgan": "^1.10.0",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "pg": "^8.0.2",

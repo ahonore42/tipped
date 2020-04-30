@@ -82,7 +82,7 @@ router.get('/logout', (req, res) => {
     //Remove user data from the session
     req.logout()
     req.flash('success', 'Bye bye! 😘')
-    res.redirect('/')
+    res.redirect('/auth/login')
 })
 
 // Export

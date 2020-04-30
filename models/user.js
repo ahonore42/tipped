@@ -36,7 +36,9 @@ module.exports = (sequelize, DataTypes) => {
     birthday: DataTypes.DATE,
     admin: DataTypes.BOOLEAN,
     pic: DataTypes.STRING,
-    zipcode: DataTypes.INTEGER
+    cover: DataTypes.STRING,
+    city: DataTypes.STRING,
+    bar: DataTypes.STRING
   }, {
     hooks: {
       beforeCreate: pendingUser => {
@@ -49,6 +51,10 @@ module.exports = (sequelize, DataTypes) => {
   });
   user.associate = function(models) {
     // associations can be defined here
+    models.user.belongsToMany(models.fave, {
+      through: 'usersFaves',
+      onDelete: 'CASCADE'
+    })
   };
 
 user.prototype.validPassword = function(typedInPassword) {

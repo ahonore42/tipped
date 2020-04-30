@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
-    <title>Auth Boilerplate</title>
+    <title>Tipped</title>
     <!-- Compiled and minified CSS -->
+    
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="/css/style.css">
@@ -23,16 +24,18 @@
             var elems = document.querySelectorAll('.sidenav');
             var instances = M.Sidenav.init(elems, {});
             var startDate = new Date()
-            startDate.setFullYear(startDate.getFullYear() - 30)
+            startDate.setFullYear(startDate.getFullYear() - 21)
             var elems2 = document.querySelectorAll('.datepicker');
             var instances2 = M.Datepicker.init(elems2, {
                 autoClose: true,
                 defaultDate: startDate,
                 setDefaultDate: true,
-                yearRange: 20,
+                yearRange: 21,
+                
                 maxDate: (new Date())
             });
-  });
+        });
+        
     </script>
 </body>
 </html>

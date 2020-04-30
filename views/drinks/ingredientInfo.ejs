@@ -1,0 +1,46 @@
+<h1>Details</h1>
+<div class="drinkContainer" style="width: 80%;">
+    <div class="ingredientInfo">
+        <div class="drinkPrep" style="padding: 10px 0;">
+            <h3><%= ingredient[0].strIngredient %></h3>
+            <img class="ingredientPic" src="https://www.thecocktaildb.com/images/ingredients/<%=ingredient[0].strIngredient%>.png" alt="Ingredient Picture">
+            <% if ( ingredient[0].strType ) { %>
+                <h5>Type: <%=ingredient[0].strType %></h5>
+            
+            <% } %>
+            <% if ( ingredient[0].strABV ) { %>
+                <h5><%= ingredient[0].strABV %>%  ABV</h5>
+            <% } %>
+        </div>
+        
+        <div>
+            <% if (ingredient[0].strDescription) { %>
+                <p style="text-align: justify; margin: 20px; font-size: 16px;"><%= ingredient[0].strDescription %></p>
+            
+            <% } else { %>
+                <p style="text-align: justify; margin: 20px; font-size: 16px;">No additional information has been written about this ingredient. This is likely because it hasn't been added yet or there is nothing more to know about its relation to alcohol or crafting cocktails. </p>
+            <% } %>
+        </div>
+    </div>
+    <div style="background-color: #263238;margin: 2.5% auto 0 auto;border-radius: 10px 10px 0 0;width: 95%;box-shadow: 0px 0px 10px black;padding: 10px 10px 5px 10px;">
+        <% if (drink != 'None Found') { %> 
+        <h4>Drinks made with <%= ingredient[0].strIngredient %></h4>
+        
+            <div class="drinkCats">
+                <% for (let i = 0; i < drink.length; i++) { %>
+                    <div class="catBox">
+                        <div class="catTitle">
+                            <div>
+                                <a href="/drinks/info?i=<%= drink[i].idDrink %>"><img class="catPic" src="<%=drink[i].strDrinkThumb%>" alt="Drink Image"></a>
+                            </div>
+                            <div>
+                                <h5 style="font-size: 20px;"><%= drink[i].strDrink  %></h5>
+                            </div>
+                        </div>
+                    </div>
+                <% } %>
+            </div>
+        <% } %>
+    </div>
+</div>
+

@@ -36,10 +36,17 @@ module.exports = {
       },
       pic: {
         type: Sequelize.STRING,
-        defaultValue: 'https://fillmurray.com/200/300'
+        defaultValue: '/images/bartender-logo.png'
       },
-      zipcode: {
-        type: Sequelize.INTEGER
+      cover: {
+        type: Sequelize.STRING,
+        defaultValue: '/images/classyred.jpg'
+      },
+      city: {
+        type: Sequelize.STRING
+      },
+      bar: {
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,

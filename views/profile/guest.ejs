@@ -1,11 +1,52 @@
-<h1><%= currentUser.firstname %> viewing <%= userProfile.firstname %>'s page</h1>
 
-<div class="row">
-    <div class="col s4">
+
+<div class="userInfo">
+    <div>
+        <h5 style="position: absolute;top: 0; left: 0; right: 0;z-index: 4;text-shadow: 0px 0px 10px black;">Welcome to <%= userProfile.firstname %>'s page</h5>
+        <img class="coverBackground" src="<%= userProfile.cover %>">
+        <div>
+
+            <img class="userCover" src="<%= userProfile.cover %>">
+        </div>
+    </div>
+    
+    <div>
         <img class="profpic" src="<%= userProfile.pic %>" alt="profile pic">
     </div>
-    <div>
-        <p><strong>Name: </strong><%= userProfile.firstname %> <%= userProfile.lastname %></p>
-        <p><strong>About: </strong><%= userProfile.bio %></p>
+    <h3><%= userProfile.firstname %> <%= userProfile.lastname %></h3>
+    <p><strong></strong><%= userProfile.bio %></p>
+    <div style="display: grid;grid-template-columns: 1fr 3fr; background-color: #263238;margin: 2.5% auto 0 auto;border-radius: 10px 10px 0 0;width: 95%;box-shadow: 0px 0px 10px black;padding: 10px 10px 10px 10px;">
+        <p>City: <%= userProfile.city %></p>
+        <p>Worked at <%= userProfile.bar %></p>
+    </div>
+</div>
+
+<div class="drinkContainer" style="background-color: #263238;margin-top: 30px;padding: 5px 0 0 0;">
+    <h4><%= userProfile.firstname %>'s Favorite Cocktails</h4>
+    <div class="catContainer">
+        <div class="drinkCats">
+            <% userProfile.faves.forEach(f => { %>
+                <div class="catBox">
+                    <div class="catTitle">
+                        <div>
+                            <% for (let i = 0; i < drink.length; i++) { %>
+                                <% if ( drink[i].idDrink == f.drinkId) { %> 
+                                
+                                    <a href="/drinks/info?i=<%= f.drinkId %>"><img class="catPic" src="<%=drink[i].strDrinkThumb%>" alt="Drink Image"></a>
+                                <% } %>
+                            <% } %>
+                            <% for (let i = 0; i < drank.length; i++) { %>
+                                <% if ( drank[i].idDrink == f.drinkId) { %> 
+                                
+                                    <a href="/drinks/info?i=<%= f.drinkId %>"><img class="catPic" src="<%=drank[i].strDrinkThumb%>" alt="Drink Image"></a>
+                                <% } %>
+                            <% } %>
+                        </div>
+                        <div>
+                            <h5 style="font-size: 20px;"><%= f.name  %></h5>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>   
     </div>
 </div>

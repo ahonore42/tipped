@@ -1,0 +1,18 @@
+<h1>All Ingredients</h1>
+
+<div class="ingContainer">
+    <div class="ingredientList">
+        <% for (let i = 0; i < ingredient.length; i++) { %>
+            <div style="margin: 0 0 20px 0">
+                <div>
+                    <div>
+                        <a href="/drinks/ingredientInfo?i=<%=ingredient[i].strIngredient1%>"><img class="catPic" src="https://www.thecocktaildb.com/images/ingredients/<%=ingredient[i].strIngredient1%>-Medium.png" alt="Ingredient Image"></a>
+                    </div>
+                    <div>
+                        <h6><%= ingredient[i].strIngredient1  %></h6>
+                    </div>
+                </div>
+            </div>
+        <% } %>
+    </div>
+</div>

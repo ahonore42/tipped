@@ -1,0 +1,216 @@
+<h1><%= drink.strDrink %></h1>
+<div class="backgroundBox">
+    <div class="drinkContainer">
+        <div class="drinkInfo">
+            <div class="drinkPicBox">
+                <img class="drinkPic" src="<%=drink.strDrinkThumb%>" alt="Drink Image">
+            </div>
+            <div class="drinkPrep">
+                <h4>Prep</h4>
+                <p><%= drink.strInstructions %></p>
+                <% if (drink.strGlass.charAt(0) == 'O'|| drink.strGlass.charAt(0) == 'I' ) { %> 
+                    <p>Serve in an <%= drink.strGlass %></p>
+                <% } else { %>
+                <p>Serve in a <%= drink.strGlass %></p>
+                <% } %>
+                <% let picUrl = '' %>
+                <% if (drink.strGlass == 'Highball glass') { %>
+                    <img class="glassware" src="/images/highball.jpg">
+                    <% } %>
+                <% if (drink.strGlass == 'Cocktail glass' || drink.strGlass == 'Martini Glass') { %>
+                    <img class="glassware" src="/images/cocktail.jpg">
+                    <% } %>
+                <% if (drink.strGlass == 'Old-fashioned glass') { %>
+                    <img class="glassware" src="/images/oldFashioned.jpg">
+                    <% } %>
+                <% if (drink.strGlass == 'Collins Glass' || drink.strGlass == 'Collins glass') { %>
+                    <img class="glassware" src="/images/collins.jpg">
+                    <% } %>
+                <% if (drink.strGlass == 'Pousse cafe glass') { %>
+                    <img class="glassware" src="/images/pousse.jpg">
+                    <% } %>
+                <% if (drink.strGlass == 'Champagne flute') { %>
+                    <img class="glassware" src="/images/champagne.jpg">
+                    <% } %>
+                <% if (drink.strGlass == 'Whiskey sour glass') { %>
+                    <img class="glassware" src="/images/whiskeySour.jpg">
+                    <% } %>
+                <% if (drink.strGlass == 'Brandy snifter') { %>
+                    <img class="glassware" src="/images/brandySnifter.jpg">
+                    <% } %>
+                <% if (drink.strGlass == 'White wine glass') { %>
+                    <img class="glassware" src="/images/whiteWine.jpeg">
+                    <% } %>
+                <% if (drink.strGlass == 'Nick and Nora Glass') { %>
+                    <img class="glassware" src="/images/nicNora.jpg">
+                    <% } %>
+                <% if (drink.strGlass == 'Hurricane glass') { %>
+                    <img class="glassware" src="/images/hurricane.jpg">
+                    <% } %>
+                <% if (drink.strGlass == 'Coffee mug') { %>
+                    <img class="glassware" src="/images/coffee.jpg">
+                    <% } %>
+                <% if (drink.strGlass == 'Shot glass') { %>
+                    <img class="glassware" src="/images/shot.jpg">
+                    <% } %>
+                <% if (drink.strGlass == 'Jar' || drink.strGlass == 'Mason jar') { %>
+                    <img class="glassware" src="/images/jar.jpg">
+                    <% } %>
+                <% if (drink.strGlass == 'Irish coffee cup') { %>
+                    <img class="glassware" src="/images/irishCoffee.jpg">
+                    <% } %>
+                <% if (drink.strGlass == 'Punch bowl') { %>
+                    <img class="glassware" src="/images/punch.jpg">
+                    <% } %>
+                <% if (drink.strGlass == 'Pitcher') { %>
+                    <img class="glassware" src="/images/pitcher.jpg">
+                    <% } %>
+                <% if (drink.strGlass == 'Pint glass') { %>
+                    <img class="glassware" src="/images/pint.jpg">
+                    <% } %>
+                <% if (drink.strGlass == 'Copper Mug') { %>
+                    <img class="glassware" src="/images/copper.jpg">
+                    <% } %>
+                <% if (drink.strGlass == 'Wine Glass') { %>
+                    <img class="glassware" src="/images/wine.jpg">
+                    <% } %>
+                <% if (drink.strGlass == 'Cordial glass') { %>
+                    <img class="glassware" src="/images/cordial.png">
+                    <% } %>
+                <% if (drink.strGlass == 'Beer mug') { %>
+                    <img class="glassware" src="/images/beerMug.jpg">
+                    <% } %>
+                <% if (drink.strGlass == 'Margarita/Coupette glass' || drink.strGlass == 'Margarita glass') { %>
+                    <img class="glassware" src="/images/margCoupette.jpg">
+                    <% } %>
+                <% if (drink.strGlass == 'Beer pilsner') { %>
+                    <img class="glassware" src="/images/pilsner.jpg">
+                    <% } %>
+                <% if (drink.strGlass == 'Beer Glass') { %>
+                    <img class="glassware" src="/images/beer.jpg">
+                    <% } %>
+                <% if (drink.strGlass == 'Parfait glass') { %>
+                    <img class="glassware" src="/images/parfait.jpg">
+                    <% } %>
+                <% if (drink.strGlass == 'Balloon Glass') { %>
+                    <img class="glassware" src="/images/balloon.jpg">
+                    <% } %>
+                <% if (drink.strGlass == 'Coupe Glass') { %>
+                    <img class="glassware" src="/images/coupe.jpg">
+                    <% } %>
+                
+            </div>
+        </div>
+                
+                
+        <div class="ingredientsContainer">
+            <h4>Ingredients</h4>
+            <div class="ingredientsBox">
+                <% if ( drink.strIngredient1 ) { %>
+                <div class="drinkIng">
+                    <a href="/drinks/ingredientInfo?i=<%= drink.strIngredient1 %>" ><img class="ingPic" src="https://www.thecocktaildb.com/images/ingredients/<%=drink.strIngredient1%>.png" alt="Ingredient Pic"></a>
+                    <p><%= drink.strMeasure1 %></p><p><%= drink.strIngredient1 %></p>
+                </div>
+                <% } %>
+                <% if ( drink.strIngredient2 ) { %>
+                <div class="drinkIng">
+                    <a href="/drinks/ingredientInfo?i=<%= drink.strIngredient2 %>" ><img class="ingPic" src="https://www.thecocktaildb.com/images/ingredients/<%=drink.strIngredient2%>.png" alt="Ingredient Pic"></a>
+                    <p><%= drink.strMeasure2 %></p><p><%= drink.strIngredient2 %></p>
+                </div>
+                <% } %>
+                <% if ( drink.strIngredient3 ) { %>
+                <div class="drinkIng">
+                    <a href="/drinks/ingredientInfo?i=<%= drink.strIngredient3 %>" ><img class="ingPic" src="https://www.thecocktaildb.com/images/ingredients/<%=drink.strIngredient3%>.png" alt="Ingredient Pic"></a>
+                    <p><%= drink.strMeasure3 %></p><p><%= drink.strIngredient3 %></p>
+                </div>
+                <% } %>
+                <% if ( drink.strIngredient4 ) { %>
+                <div class="drinkIng">
+                    <a href="/drinks/ingredientInfo?i=<%= drink.strIngredient4 %>" ><img class="ingPic" src="https://www.thecocktaildb.com/images/ingredients/<%=drink.strIngredient4%>.png" alt="Ingredient Pic"></a>
+                    <p><%= drink.strMeasure4 %></p><p><%= drink.strIngredient4 %></p>
+                </div>
+                <% } %>
+                <% if ( drink.strIngredient5 ) { %>
+                <div class="drinkIng">
+                    <a href="/drinks/ingredientInfo?i=<%= drink.strIngredient5 %>" ><img class="ingPic" src="https://www.thecocktaildb.com/images/ingredients/<%=drink.strIngredient5%>.png" alt="Ingredient Pic"></a>
+                    <p><%= drink.strMeasure5 %></p><p><%= drink.strIngredient5 %></p>
+                </div>
+                <% } %>
+                <% if ( drink.strIngredient6 ) { %>
+                <div class="drinkIng">
+                    <a href="/drinks/ingredientInfo?i=<%= drink.strIngredient6 %>" ><img class="ingPic" src="https://www.thecocktaildb.com/images/ingredients/<%=drink.strIngredient6%>.png" alt="Ingredient Pic"></a>
+                    <p><%= drink.strMeasure6 %></p><p><%= drink.strIngredient6 %></p>
+                </div>
+                <% } %>
+                <% if ( drink.strIngredient7 ) { %>
+                <div class="drinkIng">
+                    <a href="/drinks/ingredientInfo?i=<%= drink.strIngredient7 %>" ><img class="ingPic" src="https://www.thecocktaildb.com/images/ingredients/<%=drink.strIngredient7%>.png" alt="Ingredient Pic"></a>
+                    <p><%= drink.strMeasure7 %></p><p><%= drink.strIngredient7 %></p>
+                </div>
+                <% } %>
+                <% if ( drink.strIngredient8 ) { %>
+                <div class="drinkIng">
+                    <a href="/drinks/ingredientInfo?i=<%= drink.strIngredient8 %>" ><img class="ingPic" src="https://www.thecocktaildb.com/images/ingredients/<%=drink.strIngredient8%>.png" alt="Ingredient Pic"></a>
+                    <p><%= drink.strMeasure8 %></p><p><%= drink.strIngredient8 %></p>
+                </div>
+                <% } %>
+                <% if ( drink.strIngredient9 ) { %>
+                <div class="drinkIng">
+                    <a href="/drinks/ingredientInfo?i=<%= drink.strIngredient9 %>" ><img class="ingPic" src="https://www.thecocktaildb.com/images/ingredients/<%=drink.strIngredient9%>.png" alt="Ingredient Pic"></a>
+                    <p><%= drink.strMeasure9 %></p><p><%= drink.strIngredient9 %></p>
+                </div>
+                <% } %>
+                <% if ( drink.strIngredient10 ) { %>
+                <div class="drinkIng">
+                    <a href="/drinks/ingredientInfo?i=<%= drink.strIngredient10 %>" ><img class="ingPic" src="https://www.thecocktaildb.com/images/ingredients/<%=drink.strIngredient10%>.png" alt="Ingredient Pic"></a>
+                    <p><%= drink.strMeasure10 %></p><p><%= drink.strIngredient10 %></p>
+                </div>
+                <% } %>
+                <% if ( drink.strIngredient11 ) { %>
+                <div class="drinkIng">
+                    <a href="/drinks/ingredientInfo?i=<%= drink.strIngredient11 %>" ><img class="ingPic" src="https://www.thecocktaildb.com/images/ingredients/<%=drink.strIngredient11%>.png" alt="Ingredient Pic"></a>
+                    <p><%= drink.strMeasure11 %></p><p><%= drink.strIngredient11 %></p>
+                </div>
+                <% } %>
+                <% if ( drink.strIngredient12 ) { %>
+                <div class="drinkIng">
+                    <a href="/drinks/ingredientInfo?i=<%= drink.strIngredient12 %>" ><img class="ingPic" src="https://www.thecocktaildb.com/images/ingredients/<%=drink.strIngredient12%>.png" alt="Ingredient Pic"></a>
+                    <p><%= drink.strMeasure12 %></p><p><%= drink.strIngredient12 %></p>
+                </div>
+                <% } %>
+                <% if ( drink.strIngredient13 ) { %>
+                <div class="drinkIng">
+                    <a href="/drinks/ingredientInfo?i=<%= drink.strIngredient13 %>" ><img class="ingPic" src="https://www.thecocktaildb.com/images/ingredients/<%=drink.strIngredient13%>.png" alt="Ingredient Pic"></a>
+                    <p><%= drink.strMeasure13 %></p><p><%= drink.strIngredient13 %></p>
+                </div>
+                <% } %>
+                <% if ( drink.strIngredient14 ) { %>
+                <div class="drinkIng">
+                    <a href="/drinks/ingredientInfo?i=<%= drink.strIngredient14 %>" ><img class="ingPic" src="https://www.thecocktaildb.com/images/ingredients/<%=drink.strIngredient14%>.png" alt="Ingredient Pic"></a>
+                    <p><%= drink.strMeasure14 %></p><p><%= drink.strIngredient14 %></p>
+                </div>
+                <% } %>
+                <% if ( drink.strIngredient15 ) { %>
+                <div class="drinkIng" id="drinkIng">
+                    <a href="/drinks/ingredientInfo?i=<%= drink.strIngredient15 %>" ><img class="ingPic" src="https://www.thecocktaildb.com/images/ingredients/<%=drink.strIngredient15%>.png" alt="Ingredient Pic"></a>
+                    <p><%= drink.strMeasure15 %></p><p><%= drink.strIngredient15 %></p>
+                </div>
+                <% } %>
+            </div>
+            
+        </div>
+        <div style="width: 95%; margin: 2.5% auto; box-shadow: 0px 0px 10px black; border-radius: 10px 10px 0 0;padding: 10px;background-color: #263238;">
+           
+
+                            <form action="/drinks/fave" method="POST">
+                                <input type="hidden" name="userId" value="<%= currentUser.id %>">
+                                <input type="hidden" name="drinkName" value="<%= drink.strDrink %>">
+                                <input type="hidden" name="drinkId" value="<%= drink.idDrink %>">
+                                <button class="btn waves-effect waves-light cyan darken-3" type="submit">Add to Favorites
+                                    <i class="material-icons right">favorite</i>
+                            </form>
+                        
+        </div>
+    </div>
+
+</div>
