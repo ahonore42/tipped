@@ -114,11 +114,61 @@ input {
     right: 0;
 }
 
+.userBar {
+    display: grid;
+    grid-template-columns: 3fr 7fr 2fr; 
+    background-color: #263238;
+    margin: 2.5% auto 0 auto;
+    border-radius: 10px 10px 0 0;
+    width: 95%;
+    box-shadow: 0px 0px 10px black;
+    padding: 10px 10px 10px 10px;
+}
+
 .adminpic {
     height: 300px;
     width: 300px;
     border-radius: 50%;
     border: 5px solid #263238;
+}
+
+.allUsers {
+    background: url('/images/classyred.jpg');
+    background-size: 50%;
+    margin: 0;
+    height: 100%;
+    min-height: 600px;
+}
+
+.usersDisplay {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 2.5%;
+}
+
+.userCard {
+    background-color: #162228;
+    border-radius: 5px 155px 155px 5px;
+    width: 90%;
+    padding: 2.5% 1%;
+    box-shadow: 0px 0px 20px black;
+    margin: 10px auto;  
+    
+}
+
+.usersInfo {
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    width: 95%;
+    height: 100px;
+    background: url('/images/paisley.jpg');
+    background-size: 80%;
+    padding: 0;
+    border-radius: 5px 150px 150px 5px;
+    margin: 0 auto;
+    box-shadow: 0px 0px 10px black;
+    
+
 }
 
 .material-icons {
@@ -127,11 +177,16 @@ input {
 
 .homeTitle {
     text-shadow: 0px 0px 10px black;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 
 .searchDrink {
-    width: 50%;
+    width: 90%;
     margin: 40px auto;
+    background-color: #263238;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px black;
 }
 
 .catContainer, .ingContainer {
@@ -273,7 +328,7 @@ input {
 
 .ingBox {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 
 .ingPic {
@@ -290,7 +345,7 @@ input {
     }
 
     .ingBox {
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     }
 
     .ingredientList {
@@ -300,6 +355,8 @@ input {
     .ingredientsBox {
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr; 
     }
+
+    
 }
 
 @media only screen and (max-width: 992px) {
@@ -311,6 +368,10 @@ input {
         display: block;
     }
 
+    .ingBox {
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
+
     .ingredientPic {
         width: 50%;
     }
@@ -318,12 +379,10 @@ input {
     .drinkCats {
         grid-template-columns: 1fr 1fr 1fr;
     }
-    
-    .ingBox {
-        grid-template-columns: 1fr 1fr 1fr;
-    }
 
-    
+    .usersDisplay {
+        grid-template-columns: 1fr 1fr;
+    }
 
     .ingredientList {
         grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -332,11 +391,20 @@ input {
     .ingredientsBox {
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr; 
     }
+
+    .allUsers {
+        background-size: 100%;
+    }
 }
 
 @media only screen and (max-width: 700px) {
     body{
         background-size: 100%;
+    }
+
+    .homeTitle {
+        display: block;
+        
     }
 
     .drinkContainer {
@@ -352,11 +420,21 @@ input {
     }
 
     .ingBox {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
     }
 
     .ingredientsBox {
         grid-template-columns: 1fr 1fr 1fr 1fr; 
+    }
+
+    .usersDisplay {
+        display: block;
+
+    }
+
+    .usersInfo {
+        grid-template-columns: 5fr 1fr;
+        background-size: 60%;
     }
     
     .searchDrink {
@@ -365,16 +443,9 @@ input {
 }
 
 @media only screen and (max-width: 500px) {
-    .drinkCats {
-        grid-template-columns: 1fr;
-    }
-
-    .alcCats {
-        grid-template-columns: 1fr;
-    }
     
     .ingBox {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
     }
 
     .ingredientsBox {

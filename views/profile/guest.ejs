@@ -25,28 +25,33 @@
     <h4><%= userProfile.firstname %>'s Favorite Cocktails</h4>
     <div class="catContainer">
         <div class="drinkCats">
-            <% userProfile.faves.forEach(f => { %>
-                <div class="catBox">
-                    <div class="catTitle">
-                        <div>
-                            <% for (let i = 0; i < drink.length; i++) { %>
-                                <% if ( drink[i].idDrink == f.drinkId) { %> 
-                                
-                                    <a href="/drinks/info?i=<%= f.drinkId %>"><img class="catPic" src="<%=drink[i].strDrinkThumb%>" alt="Drink Image"></a>
+            <% if (userProfile.faves.length) { %>
+                <% userProfile.faves.forEach(f => { %>
+                    <div class="catBox">
+                        <div class="catTitle">
+                            <div>
+                            
+                                <% for (let i = 0; i < drink.length; i++) { %>
+                                    <% if ( drink[i].idDrink == f.drinkId) { %> 
+                                    
+                                        <a href="/drinks/info?i=<%= f.drinkId %>"><img class="catPic" src="<%=drink[i].strDrinkThumb%>" alt="Drink Image"></a>
+                                    <% } %>
                                 <% } %>
-                            <% } %>
-                            <% for (let i = 0; i < drank.length; i++) { %>
-                                <% if ( drank[i].idDrink == f.drinkId) { %> 
-                                
-                                    <a href="/drinks/info?i=<%= f.drinkId %>"><img class="catPic" src="<%=drank[i].strDrinkThumb%>" alt="Drink Image"></a>
+                                <% for (let i = 0; i < drank.length; i++) { %>
+                                    <% if ( drank[i].idDrink == f.drinkId) { %> 
+                                    
+                                        <a href="/drinks/info?i=<%= f.drinkId %>"><img class="catPic" src="<%=drank[i].strDrinkThumb%>" alt="Drink Image"></a>
+                                    <% } %>
                                 <% } %>
-                            <% } %>
-                        </div>
-                        <div>
-                            <h5 style="font-size: 20px;"><%= f.name  %></h5>
+                            </div>
+                            <div>
+                                <h5 style="font-size: 18px;"><%= f.name  %></h5>
+                            </div>
                         </div>
                     </div>
-                </div>
-            <% }) %>   
-    </div>
+                <% }) %>   
+            <% } else { %> 
+            </div>
+                <p style="margin: -20px auto 20px auto; font-size:18px;"><%= userProfile.firstname %> doesn't have any favorite drinks yet, bummer...</p>
+            <% } %> 
 </div>

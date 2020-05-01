@@ -1,23 +1,30 @@
-<div class="homeTitle" style="width: 80%; margin:0 auto;">
-    <h1>Tipped</h1>
-    <hr>
-    <h4>A cocktail resource for bartenders</h4>
+<div class="drinkPrep" style="background-color: #162228;width: 90%;">
+
+    <div class="homeTitle" style="width: 80%; margin:0 auto;">
+        <div>
+            <h1 style="margin-top: 0;">Tipped <i class="material-icons" style="font-size: 40px;">local_bar</i></h1>
+            <hr style="width: 50%;">
+            <h5>A cocktail resource for bartenders</h5>
+        </div>
+        <div class="searchDrink">
+            <div class="center row">
+                <div class="col s12" >
+                  <div class="row" id="topbarsearch" style="display:grid;grid-template-columns: 1fr 10fr;">
+                      <i class="cyan-text text-lighten-2 material-icons" style="padding: 0; margin: 25px -20px 0 0;">search</i>
+                    <div class="input-field col s6 s12 red-text">
+                      <form action="/drinks/list" method="GET">
+                          <input name="s" type="text" placeholder="Search Cocktails" id="autocomplete-input" class="autocomplete red-text" >
+                      </form>
+                    </div>
+                  </div>
+                </div>
+            </div>    
+        </div>
+    </div>
 </div>
 
-<div class="searchDrink">
-    <div class="center row">
-        <div class="col s12" >
-          <div class="row" id="topbarsearch">
-            <div class="input-field col s6 s12 red-text">
-              <i class="cyan-text text-lighten-2 material-icons left">search</i>
-              <form action="/drinks/list" method="GET">
-                  <input name="s" type="text" placeholder="Search Cocktails" id="autocomplete-input" class="autocomplete red-text" >
-              </form>
-            </div>
-          </div>
-        </div>
-    </div>    
-</div>
+
+
 
 
 <div class="catContainer">
@@ -39,7 +46,7 @@
                         <% if (drink[i].strCategory == 'Cocktail') { drink[i].strCategory = 'Classic Cocktails' } %>
                         <% if (drink[i].strCategory == 'Ordinary Drink') { drink[i].strCategory = 'Standard Cocktails' } %>
                         <% if (drink[i].strCategory == 'Shot') { drink[i].strCategory = 'Shots' } %>
-                        <h5><%= drink[i].strCategory  %></h5>
+                        <h5 style="font-size: 20px"><%= drink[i].strCategory  %></h5>
                     </div>
                 </div>
             </div>
@@ -56,7 +63,7 @@
                     <a href="/drinks/list?a=Alcoholic" ><img class="catPic" src="https://www.thecocktaildb.com/images/media/drink/vcyvpq1485083300.jpg" alt="Drink Image"></a>
                 </div>
                 <div>
-                    <h5>Alcoholic Drinks</h5>
+                    <h5 style="font-size: 20px">Alcoholic Drinks</h5>
                 </div>
             </div>
         </div>
@@ -67,7 +74,7 @@
                     <a href="/drinks/list?a=Non_Alcoholic" ><img class="catPic" src="https://www.thecocktaildb.com/images/media/drink/vqquwx1472720634.jpg" alt="Drink Image"></a>
                 </div>
                 <div>
-                    <h5>Non-Alcoholic</h5>
+                    <h5 style="font-size: 20px">Non-Alcoholic</h5>
                 </div>
             </div>
         </div>
@@ -80,11 +87,13 @@
 <div class="ingContainer">
     <h4>Find Drinks By Base Liquor</h4>
     <div class="ingBox">
-        <% for (let i = 0; i < 5; i++) { %>
-            <div>
-                <a href="/drinks/list?i=<%= ingredient[i].strIngredient1 %>"><img class="ingThumb" src="https://www.thecocktaildb.com/images/ingredients/<%= ingredient[i].strIngredient1 %>-Medium.png "></a>
-                <h5><%= ingredient[i].strIngredient1 %></h5>
-            </div>
+        <% for (let i = 0; i < ingredient.length; i++) { %>
+            <% if ( ingredient[i].strIngredient1 == 'Vodka' || ingredient[i].strIngredient1 == 'Gin' || ingredient[i].strIngredient1 == 'Rum' || ingredient[i].strIngredient1 == 'Tequila' || ingredient[i].strIngredient1 == 'Scotch' || ingredient[i].strIngredient1 == 'Bourbon' || ingredient[i].strIngredient1 == 'Rye Whiskey') { %> 
+                <div>
+                    <a href="/drinks/list?i=<%= ingredient[i].strIngredient1 %>"><img class="ingThumb" src="https://www.thecocktaildb.com/images/ingredients/<%= ingredient[i].strIngredient1 %>-Medium.png "></a>
+                    <h5 style="font-size: 20px"><%= ingredient[i].strIngredient1 %></h5>
+                </div>
+            <% } %>
         <% } %>
     </div>
 </div>

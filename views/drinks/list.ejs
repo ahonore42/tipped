@@ -1,4 +1,4 @@
-
+<div class="drinkPrep" style="background-color: #162228;width: 90%; padding: 5px 10px;margin-bottom: 20px;">
     <% if (queryWord == 'Milk / Float / Shake') { queryWord = 'Floats and Shakes' } %>
     <% if (queryWord == 'Other/Unknown') { queryWord = 'Novelty Drinks' } %>
     <% if (queryWord == 'Coffee / Tea') { queryWord = 'Coffee' } %>
@@ -9,7 +9,8 @@
     <% if (queryWord == 'Shot') { queryWord = 'Shots' } %>
     <% if (queryWord == 'Alcoholic') { queryWord = 'Alcoholic Drinks' } %>
     <% if (queryWord == 'Non_Alcoholic') { queryWord = 'Non-Alcoholic Drinks' } %>
-    <h1><%= queryWord %></h1>
+    <h2 style="margin-top: 0;"><%= queryWord %></h2>
+</div>
 
 <div class="catContainer">
     <div class="drinkCats">

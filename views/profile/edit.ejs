@@ -1,0 +1,61 @@
+<h1>Edit Profile</h1>
+
+<div class="drinkContainer" style="padding: 10px;">
+
+    <div class="row">
+        <form class="col s12" method="POST" action="/profile/user?_method=PUT">
+            <div class="row">
+                <div class="input-field col s4">
+                    <input id="first_name" type="text" name="firstname" value="<%= currentUser.firstname %>">
+                    <label for="first_name">First Name</label>
+                </div>
+                <div class="input-field col s4">
+                    <input id="last_name" type="text" name="lastname" value="<%= currentUser.lastname %>">
+                    <label for="last_name">Last Name</label>
+                </div>
+            
+                <div class="input-field col s4">
+                    <input id="username" name="username" type="text" value="<%= currentUser.username %>">
+                    <label for="username">Username</label>
+                </div>
+            </div>
+            <div class="row" style="color: black;">
+                <div class="input-field col s4">
+                    <input id="birthday" name="birthday" type="text" class="datepicker" value="<%= currentUser.birthday %>">
+                    <label for="birthday">DOB</label>
+                </div>
+                <div class="input-field col s4">
+                    <input id="city" name="city" type="text" value="<%= currentUser.city %>"> 
+                    <label for="city">City</label>
+                </div>
+                <div class="input-field col s4">
+                    <input id="bar" type="text" name="bar" value="<%= currentUser.bar %>">
+                    <label for="bar">Bars You Worked At</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <input id="pic" type="url" name="pic" value="<%= currentUser.pic %>">
+                    <label for="pic">Picture URL</label>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <input id="cover" type="url" name="cover" value="<%= currentUser.cover %>">
+                    <label for="cover">Cover Picture URL</label>
+            </div>
+            </div>
+            <div class="row">
+                <div class="col s1"></div>
+                <div class="input-field col s10" >
+                    <textarea id="bio" name="bio" class="materialize-textarea white-text"><%= currentUser.bio %></textarea>
+                    <label for="bio">A Little Bit About Yourself</label>
+                </div>
+                <div class="col s1"></div>
+            </div>
+            <button class="btn waves-effect cyan darken-3">Submit
+                <i class="material-icons right">send</i>
+            </button>
+            
+        </form>
+    </div>
+</div>

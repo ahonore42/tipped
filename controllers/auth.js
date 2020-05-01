@@ -48,7 +48,7 @@ router.post('/signup', (req, res, next) => {
                 })(req, res, next)
             }
             else {
-                // Bad - this person already hass an account
+                // Bad - this person already has an account
                 req.flash('error', 'Account already exists with this username')
                 res.redirect('/auth/login')
             }

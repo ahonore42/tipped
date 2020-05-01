@@ -1,11 +1,12 @@
 <nav>
     <div class="nav-wrapper blue-grey darken-4">
-      <a href="#!" class="brand-logo center"><i class="material-icons">local_bar</i>Tipped</a>
+      <a href="#!" class="brand-logo center">Tipped <i class="material-icons">local_bar</i></a>
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
         <% if (currentUser) { %>
         <li><a href="/">Drinks</a></li>
         <li><a href="/drinks/ingredients?i=list">Ingredients</a></li>
+        <li><a href="/profile/allUsers">Users</a></li>
         <li><a href="/profile/user"><%= currentUser.firstname %></a></li>
         <% if (currentUser.admin) { %>
           <li><a href="/profile/admin">Admin</a></li>
@@ -23,7 +24,8 @@
       <% if (currentUser) { %>
       <li><a href="/">Drinks</a></li>
       <li><a href="/drinks/ingredients?i=list">Ingredients</a></li>
-      <li><a href="/profile/user">Profile Page</a></li>
+      <li><a href="/profile/allUsers">Users</a></li>
+      <li><a href="/profile/user">My Page</a></li>
       <% if (currentUser.admin) { %>
         <li><a href="/profile/admin">Admin Page</a></li>
       <% } %>

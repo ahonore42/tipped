@@ -43,8 +43,14 @@ router.get('/list', (req, res) => {
     axios.get(url)
     .then ((apiResponse) => {
         let drink = apiResponse.data.drinks
-        //console.log(apiResponse.data.drinks)
-        res.render('drinks/list', { drink, queryWord })
+        if ( drink != null) {
+            //console.log(apiResponse.data.drinks)
+            res.render('drinks/list', { drink, queryWord })
+        }
+        else {
+            res.render('drinks/oops')
+            
+        }
     })
 })
 

@@ -33,6 +33,64 @@ router.get('/user', (req, res) => {
     })
 })
 
+router.put('/user', userLogin, (req, res) => {
+    db.user.update({
+        firstname: req.body.firstname,
+        lastname: req.body.lastname,
+        username: req.body.username,
+        birthday: req.body.birthday,
+        city: req.body.city,
+        bar: req.body.bar,
+        pic: req.body.pic,
+        cover: req.body.cover,
+        bio: req.body.bio
+    },{ 
+        where: { id: req.user.id},
+    })
+    .then(() => {
+      res.redirect('user')
+    })
+    .catch((error) => {
+      console.log(error)
+      res.render('error')
+    })
+  })
+
+router.get('/user/:id/edit', (req, res) => {
+    db.user.findOne({
+      where: { id: req.user.id },
+    })
+    .then(user => {
+
+      res.render('profile/edit', { user })
+    })
+    .catch((error) => {
+      console.log(error)
+      res.render('error')
+    })
+  })
+
+
+  router.delete('/user', userLogin, (req, res) => {
+    db.usersFaves.destroy({
+        where: {
+              userId: req.user.id
+      }
+    })
+    .then((user) => {
+        console.log(user)
+        db.user.destroy({
+           where: { id: req.user.id }
+      })
+      .then(()=>{
+          res.redirect('auth/signup')
+      })
+    })
+    .catch(err => {
+        console.log(err)
+        res.render('error')
+    })
+  })
 
 
 // GET /profile/guest/userId - viewing a user's profile as a guest
@@ -60,6 +118,13 @@ router.get('/guest/:id', (req, res) => {
     .catch(err => {
         console.log(err)
         res.render('error')
+    })
+})
+
+router.get('/allUsers', userLogin, (req, res) => {
+    db.user.findAll()
+    .then(users => {
+        res.render('profile/allUsers', { users })
     })
 })
 

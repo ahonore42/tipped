@@ -21,6 +21,7 @@ let passport = require('./config/passportConfig')
 let baseUrl = 'https://www.thecocktaildb.com/api/json/v2/9973533/'
 let methodOverride = require('method-override')
 
+
 /*****************************
  * SETTINGS / MIDDLEWARE
  *****************************/
@@ -60,6 +61,8 @@ app.use((req, res, next) => {
     res.locals.currentUser = req.user
     next()
 })
+
+let userLogin = require('./middleware/userLogin')
 
 /*****************************
  * ROUTES 
