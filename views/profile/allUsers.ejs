@@ -8,7 +8,7 @@
         <% users.forEach(u => { %>
             <div class="userCard">
                 <div class="usersInfo">
-                    <div style="text-shadow: 0px 0px 5px black;">
+                    <div style="text-shadow: 0px 0px 5px black">
                         <h5 style="margin: 5px 0; font-size: 18px;"><i class="material-icons left" style="font-size: 20px; margin: 0 2px 0 20px;">local_bar</i><%= u.username %></h5>
                         <p style="margin: 0 0 10px 0;"><%= u.city %></p>
                         <a href="/profile/guest/<%=u.id%>">

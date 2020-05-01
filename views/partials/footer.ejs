@@ -8,8 +8,9 @@
           <ul>
             <% if (currentUser) { %>
               <li><a class="grey-text text-lighten-3" href="/auth/logout">Logout</a></li>
+              <li>or</li>
               <form method="POST" action="/profile/user?_method=DELETE">
-                <li><button type="submit" class="btn btn-small red">Delete Account</button></li>
+                <li><button type="submit" class="btn btn-small red darken-4">Delete Account</button></li>
               </form>
             <% } else { %>
               <li><a class="grey-text text-lighten-3" href="/auth/login">Login</a></li>

@@ -15,7 +15,9 @@
         <p><strong></strong><%= currentUser.bio %></p>
         <div class="userBar">
             <p>City: <%= currentUser.city %></p>
-            <p>Worked at <%= currentUser.bar %></p>
+            <% if (currentUser.bar) { %> 
+                <p>Worked at <%= currentUser.bar %></p>
+            <% } %>
             <form action="/profile/user/<%=currentUser.id%>/edit?" method="GET">
                 <button class="btn btn-small waves-effect waves-light cyan darken-3" type="submit">
                 <i class="material-icons left" style="margin: 0 0 0 0;">edit</i> Edit Profile
@@ -51,7 +53,7 @@
                                 <div>
                                     <h5 style="font-size: 18px; margin: 0 0 10px 0;"><%= f.name  %></h5>
                                     <form action="/drinks/fave/<%=f.id%>?_method=DELETE" method="POST">
-                                        <button class="btn btn-small waves-effect waves-light pink darken-4" type="submit">
+                                        <button class="btn btn-small waves-effect waves-light red darken-4" type="submit">
                                         <i class="material-icons left">delete</i> Delete
                                         </button>
                                     </form>
