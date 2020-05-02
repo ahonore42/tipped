@@ -460,6 +460,18 @@ input {
 
     }
 
+    h1 { 
+        font-size: 36px;
+    }
+
+    h2 {
+        font-size: 32px;
+    }
+
+    h1 i {
+        font-size: 32px;
+    }
+
     .userdrinkContainer .catContainer {
         padding: 0;
     }
