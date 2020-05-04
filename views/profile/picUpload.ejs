@@ -1,0 +1,75 @@
+
+<div id="cov">
+    <div class="drinkContainer" style="border-radius: 0 0 5px 5px; padding: 10px 10px 20px 10px; background-color: rgba(22,34,40,0.85);">
+        <div>
+            <h5>Update Cover Pic</h5>
+            <button id="upload_widget" class="cloudinary-button teal darken-3" style="margin: 20px; padding: 5px 10px; border: none; border-radius: 2px;">UPLOAD
+                <i class="material-icons right">cloud_upload</i>
+            </button>
+            <div class="container">
+                <form method="POST" action="/profile/user/picUpload?_method=PUT"> 
+                    <input type="hidden" id="cover" name="cover" value=""></input>
+                    <input type="hidden" name="id" value="<%= currentUser.id %>">
+                    <button class="btn waves-effect waves-light cyan darken-3" type="submit">
+                    Submit
+                    <i class="material-icons right">send</i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="prof">
+    <div class="drinkContainer" style="border-radius: 5px 5px 0 0; padding: 10px 10px 20px 10px; background-color: rgba(22,34,40,0.85); margin: 20px auto 0 auto;">
+        <div>
+            <h5>Update Profile Pic</h5>
+            <button id="upload_widget2" class="cloudinary-button teal darken-3" style="margin: 20px; padding: 5px 10px; border: none; border-radius: 2px;">UPLOAD
+                <i class="material-icons right">cloud_upload</i>
+            </button>
+            <div class="container">
+                <form method="POST" action="/profile/user/profUpload?_method=PUT"> 
+                    <input type="hidden" id="pic" name="pic" value=""></input>
+                    <input type="hidden" name="id" value="<%= currentUser.id %>">
+                    <button class="btn waves-effect waves-light cyan darken-3" type="submit">
+                    Submit
+                    <i class="material-icons right">send</i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+    
+
+
+<script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>  
+
+<script type="text/javascript">  
+var myWidget = cloudinary.createUploadWidget({
+  cloudName: "ahonore42", 
+  apiKey: "114145469311268",
+  uploadPreset: "tqfmgcni"}, (error, result) => { 
+    if (!error && result && result.event === "success") { 
+      console.log("Done! Here is the image info: ", result.info); 
+      let photoUrl = result.info.secure_url
+      let urlInput1 = document.getElementById("cover")
+      let urlInput2 =  document.getElementById("pic")
+      urlInput1.value = photoUrl
+      urlInput2.value = photoUrl
+    }
+    else{
+      console.log(error)
+    }
+  }
+)
+document.getElementById("upload_widget").addEventListener("click", function(){
+    document.getElementById("prof").style.display="none";
+    myWidget.open();
+  }, false);
+
+  document.getElementById("upload_widget2").addEventListener("click", function(){
+    document.getElementById("cov").style.display="none";
+    myWidget.open();
+  }, false);
+</script>

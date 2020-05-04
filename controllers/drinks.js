@@ -55,14 +55,20 @@ router.get('/list', (req, res) => {
 })
 
 router.get('/info', (req, res) =>{
-    let id = req.query.i
-    console.log('DRINK ID', id)
-    let url = infoUrl + 'i=' + id
-    axios.get(url)
-    .then((apiResponse) => {
-        drink = apiResponse.data.drinks[0]
-        console.log(drink)
-        res.render('drinks/info', { drink })
+    db.user.findOne({
+        where: { id: req.user.id },
+        include: [db.fave]
+    })
+    .then((user) => {
+        let id = req.query.i
+        console.log('DRINK ID', id)
+        let url = infoUrl + 'i=' + id
+        axios.get(url)
+        .then((apiResponse) => {
+            drink = apiResponse.data.drinks[0]
+            // console.log(drink)
+            res.render('drinks/info', { drink, user })
+        })
     })
 })
 
@@ -77,16 +83,6 @@ router.get('/ingredients', (req, res) =>{
         })
 })
 
-// router.get('/ingredients', (req, res) =>{
-//     let id = req.query.i
-//     console.log('ing list', id)
-//     let url = infoUrl + '=' + id
-//     axios.get(url)
-//     .then((apiResponse) => {
-//         let ingredient = apiResponse.data.drinks
-//         res.render('drinks/ingredients', { ingredient })
-//     })
-// })
 
 router.get('/ingredientInfo', (req, res) =>{
     let id = req.query.i
@@ -119,16 +115,12 @@ router.post('/fave', (req, res) => {
             }
           })
           .then(([fave, wasCreated ]) => {
-              console.log(fave)
-              user.addFave(fave)
-            //   db.usersFaves.create({
-            //       userId: req.body.userId,
-            //       faveId: fave.fave.dataValues.id
-            //   })
+            // console.log(fave)
+            user.addFave(fave)
           })
           .then(() => {
               console.log('Attempting redirect')
-              res.redirect('/profile/user')
+              res.redirect('/drinks/info?i=' + req.body.drinkId)
           })
           .catch(err => {
               console.log(err)
@@ -149,12 +141,38 @@ router.post('/fave', (req, res) => {
            faveId: req.params.id,
             userId: req.user.id
     }
-
     })
     .then(() => {
         res.redirect('/profile/user')
       })
       .catch(err => {
+        console.log('Ooof', err)
+        res.render('error')
+      })
+  })
+
+  router.delete('/faveDrink/:id', (req, res) => {
+    // Delete from the join table
+    db.fave.findOne({
+        where: { id: req.params.id }
+    })
+    .then((fave) => {
+        // console.log(fave)
+        db.usersFaves.destroy({
+          where: {
+               faveId: req.params.id,
+                userId: req.user.id
+        }
+        })
+        .then(() => {
+            res.redirect('/drinks/info?i=' + fave.dataValues.drinkId)
+          })
+          .catch(err => {
+            console.log('Ooof', err)
+            res.render('error')
+          })
+    })
+    .catch(err => {
         console.log('Ooof', err)
         res.render('error')
       })

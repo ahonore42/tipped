@@ -1,15 +1,38 @@
 
     <div class="userInfo">
         <div>
-            <img class="coverBackground" src="<%= currentUser.cover %>">
-            <div>
+            <a href="/profile/user/<%=currentUser.id%>/picUpload?">
+                <div class="addPic" type="submit">
+               
 
-                <img class="userCover" src="<%= currentUser.cover %>">
-            </div>
+                    <i class="material-icons">image</i>
+                
+                </div>
+            </a>
+            <% if (! currentUser.cover ) {  %>
+                
+                <img class="coverBackground" src="/images/classyred.jpg">
+                <div>
+    
+                    <img class="userCover" src="/images/classyred.jpg">
+                </div>
+            <% } else { %> 
+                
+                <img class="coverBackground" src="<%= currentUser.cover %>">
+                <div>
+    
+                    <img class="userCover" src="<%= currentUser.cover %>">
+                </div>
+            <% } %>
         </div>
         
         <div>
-            <img class="profpic" src="<%= currentUser.pic %>" alt="profile pic">
+            <% if (! currentUser.pic ) {  %>
+                <img class="profpic" src="/images/bartender-logo.png" alt="profile pic">
+
+            <% } else { %> 
+                <img class="profpic" src="<%= currentUser.pic %>" alt="profile pic">
+            <% } %>
         </div>
         <h3><%= currentUser.firstname %> <%= currentUser.lastname %></h3>
         <p><strong></strong><%= currentUser.bio %></p>
@@ -54,7 +77,7 @@
                                     <h5 style="font-size: 18px; margin: 0 0 10px 0;"><%= f.name  %></h5>
                                     <form action="/drinks/fave/<%=f.id%>?_method=DELETE" method="POST">
                                         <button class="btn btn-small waves-effect waves-light red darken-4" type="submit">
-                                        <i class="material-icons left">delete</i> Delete
+                                        <i class="material-icons center">delete</i> 
                                         </button>
                                     </form>
                                 </div>

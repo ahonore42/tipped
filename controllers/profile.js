@@ -3,8 +3,10 @@ let moment = require('moment')
 let adminLogin = require('../middleware/adminLogin')
 let userLogin = require('../middleware/userLogin')
 let db = require('../models')
+let cloudinary = require('cloudinary')
 const axios = require('axios')
 
+cloudinary.config(process.env.CLOUDINARY_URL)
 // Custom middleware that is ONLY applied to the routes in this file!
 router.use(userLogin)
 
@@ -56,6 +58,8 @@ router.put('/user', userLogin, (req, res) => {
     })
   })
 
+
+  
 router.get('/user/:id/edit', (req, res) => {
     db.user.findOne({
       where: { id: req.user.id },
@@ -63,6 +67,50 @@ router.get('/user/:id/edit', (req, res) => {
     .then(user => {
 
       res.render('profile/edit', { user })
+    })
+    .catch((error) => {
+      console.log(error)
+      res.render('error')
+    })
+  })
+
+  router.get('/user/:id/picUpload', (req, res) => {
+    db.user.findOne({
+      where: { id: req.user.id },
+    })
+    .then(user => {
+
+      res.render('profile/picUpload', { user })
+    })
+    .catch((error) => {
+      console.log(error)
+      res.render('error')
+    })
+  })
+
+  router.put('/user/picUpload', userLogin, (req, res) => {
+    db.user.update({
+        cover: req.body.cover
+    },{ 
+        where: { id: req.user.id}
+    })
+    .then(() => {
+        res.redirect('../user')
+    })
+    .catch((error) => {
+      console.log(error)
+      res.render('error')
+    })
+  })
+
+  router.put('/user/profUpload', userLogin, (req, res) => {
+    db.user.update({
+        pic: req.body.pic
+    },{ 
+        where: { id: req.user.id}
+    })
+    .then(() => {
+        res.redirect('../user')
     })
     .catch((error) => {
       console.log(error)

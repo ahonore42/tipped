@@ -1,3 +1,19 @@
+<% let faveId = []; %>
+<% let queryId = []; %>
+<% let oof = queryId[0] %>
+<% for (let i = 0; i < user.faves.length; i++) {%>
+    <% if (drink.idDrink == user.faves[i].dataValues.drinkId) { %>
+        <% console.log('A match!', user.faves[i].dataValues.drinkId) %>
+        <% faveId.push(user.faves[i].dataValues.drinkId) %>
+        <% console.log(user.faves[i].dataValues.id) %>
+        <% queryId.push(user.faves[i].dataValues.id) %>
+    <% } %>
+<% } %>
+<% console.log('Fave ID', faveId[0]) %>
+<% if (queryId[0]) {%>
+    <% console.log('query ID', queryId[0].toString() )%>
+<% } %>
+
 <div class="drinkPrep" style="background-color: #162228;width: 90%; padding: 5px 10px;margin-bottom: 20px;">
     <h2 style="margin-top: 0;"><%= drink.strDrink %></h2>
 </div>
@@ -202,15 +218,31 @@
             
         </div>
         <div style="width: 95%; margin: 2.5% auto; box-shadow: 0px 0px 10px black; border-radius: 10px 10px 0 0;padding: 10px;background-color: #263238;">
-           
-
-                            <form action="/drinks/fave" method="POST">
-                                <input type="hidden" name="userId" value="<%= currentUser.id %>">
-                                <input type="hidden" name="drinkName" value="<%= drink.strDrink %>">
-                                <input type="hidden" name="drinkId" value="<%= drink.idDrink %>">
-                                <button class="btn waves-effect waves-light cyan darken-3" type="submit">Add to Favorites
-                                    <i class="material-icons right">favorite</i>
-                            </form>
+            <% if (user.faves.length) { %>
+                <% if (faveId[0] == drink.idDrink) { %>
+                    <form action="/drinks/faveDrink/<%= queryId[0].toString() %>?_method=DELETE" method="POST">
+                        <button class="btn btn-small waves-effect waves-light cyan darken-3" type="submit">
+                        <i class="material-icons center">favorite</i> 
+                        </button>
+                    </form>
+                <% } else { %>
+                    <form action="/drinks/fave" method="POST">
+                        <input type="hidden" name="userId" value="<%= currentUser.id %>">
+                        <input type="hidden" name="drinkName" value="<%= drink.strDrink %>">
+                        <input type="hidden" name="drinkId" value="<%= drink.idDrink %>">
+                        <button class="btn waves-effect waves-light cyan darken-3" type="submit">
+                            <i class="material-icons center">favorite_border</i>
+                    </form> 
+                <% } %>
+            <% } else { %>
+                <form action="/drinks/fave" method="POST">
+                    <input type="hidden" name="userId" value="<%= currentUser.id %>">
+                    <input type="hidden" name="drinkName" value="<%= drink.strDrink %>">
+                    <input type="hidden" name="drinkId" value="<%= drink.idDrink %>">
+                    <button class="btn waves-effect waves-light cyan darken-3" type="submit">
+                        <i class="material-icons center">favorite_border</i>
+                </form>
+            <% } %>
                         
         </div>
     </div>
